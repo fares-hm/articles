@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ArticleCategorize extends Model
+class ArticleCategories extends Model
 {
     //
 }
