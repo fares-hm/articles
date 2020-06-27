@@ -19,6 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('article_author');
             $table->date('article_date');
             $table->string('article_content');
+            $table->foreignId('article_cat_id')->constrained('categories');
             $table->timestamps();
         });
     }
