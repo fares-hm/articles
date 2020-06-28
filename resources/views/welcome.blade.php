@@ -82,7 +82,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Welcome to medium here you will find miscellaneous articles, to view all
+                    Welcome to <a class="text-primary">medium</a> here you will find miscellaneous articles
                 </div>
 
                 <div class="links">

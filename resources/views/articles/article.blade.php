@@ -8,7 +8,7 @@ use \App\Http\Controllers\ArticleController;
 @section('content')
     <div class="row justify-content-md-center ">
 
-        <div class="card" style="width: 50rem;">
+        <article class="card" style="width: 50rem;">
             <img class="card-img-top"
                  src="{{url(ArticleController::getArticleImages($article->id)[0]->image_url)}}" alt="">
             <div class="card-body">
@@ -18,8 +18,8 @@ use \App\Http\Controllers\ArticleController;
                 <p class="card-text">Some quick example text to build on the card title and make up
                     the bulk of
                     the card's content.</p>
-                <a href="#" class="btn btn-success">Edit</a>
-                <a href="#" class="btn btn-danger">Delete</a>
+                <a href="{{URL::to('articles/' . $article->id .'/edit')}}" class="btn btn-success">{{ __('Edit') }}</a>
+                <a href="#" class="btn btn-danger">{{ __('Delete') }}</a>
             </div>
             <h5 class="card-title align-self-center">Images</h5>
 
@@ -27,7 +27,7 @@ use \App\Http\Controllers\ArticleController;
                 <img class="card-img-top" src="{{url($image->image_url)}}" alt="">
                 <div class="mt-2"></div>
             @endforeach
-        </div>
+        </article>
     </div>
 
 @endsection
