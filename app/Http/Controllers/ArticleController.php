@@ -100,7 +100,72 @@ class ArticleController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        // validate
+        $validatedData = $request->validate([
+            'article_title' => 'required',
+            'article_author' => 'required',
+            'article_cat' => 'required',
+            'article_content' => 'required',
+            'article_image' => 'required'
+        ]);
+
+        $article = Article::find($id);
+
+        $cat = Category::find($article->article_cat_id);
+
+        $cat->category_name = $request->get('article_cat');
+        $cat->category_desc = 'New Category';
+
+        $cat->save();
+
+        // save data
+        $article->article_title = $request->get('article_title');
+        $article->article_author = $request->get('article_author');
+        $article->article_date = \Carbon\Carbon::now();
+        $article->article_cat_id = $cat->id;
+        $article->article_content = $request->get('article_content');
+
+        $article->save();
+
+
+        $images = $this->getArticleImages($article->id);
+
+
+        $imgName = 'article_ ' . $article->id . '_1.jpg'; // update image if exist
+        $request->file('article_image')->storeAs('public/images', $imgName);
+        if ($images != null) {
+
+            $images[0]->image_url = $imgName;
+            $images[0]->article_id = $article->id;
+            $images[0]->save();
+        }
+        else
+        {
+            $img = new Image();
+            $img->image_url = $imgName;
+            $img->article_id = $article->id;
+            $img->save();
+        }
+        if ($request->hasFile('article_image2')) {
+            $imgName2 = 'article_ ' . $article->id . '_2.jpg';
+            $request->file('article_image2')->storeAs('public/images', $imgName2);
+
+            if (count($images) > 1) {
+                $images[1]->image_url = $imgName2;
+                $images[1]->article_id = $article->id;
+                $images[1]->save();
+            } else {
+                $img = new Image();
+                $img->image_url = $imgName2;
+                $img->article_id = $article->id;
+                $img->save();
+            }
+        }
+
+        return Redirect::to('articles')->with([
+            'message' => 'Article updated successfully',
+            'alert_type' => 'success'
+        ]);
     }
 
 
@@ -114,9 +179,7 @@ class ArticleController extends Controller
                 'message' => 'Article deleted successfully',
                 'alert_type' => 'success'
             ]);
-        }
-        else
-        {
+        } else {
             return Redirect::to('articles')->with([
                 'message' => 'Article deleted failed',
                 'alert_type' => 'danger'
