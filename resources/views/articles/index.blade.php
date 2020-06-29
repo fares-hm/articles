@@ -35,7 +35,7 @@ use \App\Http\Controllers\ArticleController;
                             <p class="card-text text-secondary">{{$article->article_content}}</p>
                             <a href="{{URL::to('articles/' . $article->id)}}" class="btn btn-primary">{{ __('View') }}</a>
                             <a href="{{URL::to('articles/' . $article->id .'/edit')}}" class="btn btn-success">{{ __('Edit') }}</a>
-                            <a href="#" class="btn btn-danger">{{ __('Delete') }}</a>
+                            <a href="{{URL::to('articles/' . $article->id .'/destroy')}}" class="btn btn-danger">{{ __('Delete') }}</a>
                         </div>
                     </article>
 

@@ -30,52 +30,12 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
-        // validate
-       $validatedData = $request->validate([
-            'article_title' => 'required',
-            'article_author' => 'required',
-            'article_cat' => 'required',
-            'article_content' => 'required',
-            'article_image'  => 'required'
+
+
+        return Redirect::to('articles')->with([
+            'message' => 'Article created successfully',
+            'alert_type' => 'success'
         ]);
-
-
-        $cat = new Category();
-        $cat->category_name = $request->get('article_cat');
-        $cat->category_desc = 'New Category';
-
-        $cat->save();
-
-        $article = new Article();
-        // save data
-        $article->article_title = $request->get('article_title');
-        $article->article_author = $request->get('article_author');
-        $article->article_date = \Carbon\Carbon::now();
-        $article->article_cat_id = $cat->id;
-        $article->article_content = $request->get('article_content');
-
-
-        $article->save();
-
-
-        $image = new Image();
-        $imgName = 'article_ '. $article->id . '_1.jpg'; // update image if exist
-        $path = $request->file('article_image')->storeAs('public/images', $imgName);
-        $image->image_url = $imgName;
-        $image->article_id = $article->id;
-        $image->save();
-
-        if($request->hasFile('article_image2'))
-        {
-            $image = new Image();
-            $imgName = 'article_ '. $article->id . '_2.jpg';
-            $path = $request->file('article_image2')->storeAs('public/images', $imgName);
-            $image->image_url = $imgName;
-            $image->article_id = $article->id;
-            $image->save();
-        }
-
-        return Redirect::to('articles');
 
 
     }
@@ -104,7 +64,7 @@ class ArticleController extends Controller
 
     public function destroy($id)
     {
-        //
+        return 'destroy';
     }
 
     public static function getArticleCategory($catID)

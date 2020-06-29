@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Medium') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -76,8 +76,20 @@
     </nav>
 
     <main class="py-4">
+        @include('alert')
         @yield('content')
     </main>
 </div>
+
+<script>
+    $(function () {
+        $('#msgAlert').fadeTo(2000,500).slideUp(500, function () {
+            $('#msgAlert').slideUp(500);
+        })
+    })
+</script>
+
 </body>
 </html>
+
+
