@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 28, 2020 at 06:13 PM
+-- Generation Time: Jun 29, 2020 at 05:02 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.4.6
 
@@ -40,16 +40,16 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `articles_article_cat_id_foreign` (`article_cat_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `articles`
 --
 
 INSERT INTO `articles` (`id`, `article_title`, `article_author`, `article_date`, `article_content`, `article_cat_id`, `created_at`, `updated_at`) VALUES
-(1, 'In aut.', 'Lilyan Donnelly', '2020-06-02', 'Nobis inventore consectetur neque. Nam in delectus eos deleniti non expedita odit qui. Consectetur fugit officia et non. Ducimus qui repellat quis impedit. Inventore beatae dolore et quasi.', 2, '2020-06-26 07:21:19', '2020-06-26 07:21:19'),
-(2, 'Omnis.', 'Alycia Collins', '2020-06-09', 'Rerum sunt vel accusamus doloribus voluptatem ducimus a. Hic aut sapiente occaecati. Maiores illum dolores qui reiciendis ratione.', 3, '2020-06-26 07:21:19', '2020-06-26 07:21:19'),
-(3, 'Atque et.', 'Esta Rodriguez PhD', '2020-06-23', 'Voluptas mollitia qui eum quas odit voluptate. Quis in aliquam ut autem est. Fuga fugit voluptates illum et nemo.', 1, '2020-06-26 07:21:19', '2020-06-26 07:21:19');
+(1, 'Natus aut.', 'Andres Corwin', '2020-06-17', 'Error saepe eligendi ut voluptas ea. Voluptatem iure necessitatibus quae et natus placeat aut. Eos repellat est nam voluptatum ipsa. Eos voluptatem ut quasi voluptatem vitae.', 2, '2020-06-29 13:01:10', '2020-06-29 13:01:10'),
+(2, 'Eius.', 'Kamren Rodriguez', '2020-06-09', 'Et pariatur voluptates voluptas dolor non dolores omnis. Et quos quis quo fugit molestiae. Pariatur et soluta impedit odit et quisquam in.', 1, '2020-06-29 13:01:10', '2020-06-29 13:01:10'),
+(3, 'Neque eum.', 'Martina Wintheiser', '2020-06-21', 'Neque dicta eveniet ipsum. Minus adipisci mollitia culpa dolores rerum. Quo laboriosam quis velit et eaque quae. Et rerum recusandae dolores vero qui voluptas deleniti.', 3, '2020-06-29 13:01:10', '2020-06-29 13:01:10');
 
 -- --------------------------------------------------------
 
@@ -65,16 +65,16 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `category_name`, `category_desc`, `created_at`, `updated_at`) VALUES
-(1, 'graham.info', 'Quo eaque excepturi inventore rerum voluptas.', '2020-06-26 07:21:19', '2020-06-26 07:21:19'),
-(2, 'schuster.com', 'Eos ut vero sit vel.', '2020-06-26 07:21:19', '2020-06-26 07:21:19'),
-(3, 'gorczany.biz', 'Id et blanditiis culpa fugiat ut qui.', '2020-06-26 07:21:19', '2020-06-26 07:21:19');
+(1, 'gutkowski.com', 'Sed minus et distinctio nostrum nihil.', '2020-06-29 13:01:10', '2020-06-29 13:01:10'),
+(2, 'casper.info', 'Repudiandae molestias odio totam omnis.', '2020-06-29 13:01:10', '2020-06-29 13:01:10'),
+(3, 'heathcote.com', 'Commodi numquam ipsa veniam veniam.', '2020-06-29 13:01:10', '2020-06-29 13:01:10');
 
 -- --------------------------------------------------------
 
@@ -115,12 +115,12 @@ CREATE TABLE IF NOT EXISTS `images` (
 --
 
 INSERT INTO `images` (`id`, `image_url`, `article_id`, `created_at`, `updated_at`) VALUES
-(1, 'images/article_1.jpg', 2, '2020-06-26 07:21:19', '2020-06-26 07:21:19'),
-(2, 'images/article_1.jpg', 1, '2020-06-26 07:21:19', '2020-06-26 07:21:19'),
-(3, 'images/article_1.jpg', 2, '2020-06-26 07:21:19', '2020-06-26 07:21:19'),
-(4, 'images/article_1.jpg', 3, '2020-06-26 07:21:19', '2020-06-26 07:21:19'),
-(5, 'images/article_1.jpg', 1, '2020-06-26 07:21:19', '2020-06-26 07:21:19'),
-(6, 'images/article_1.jpg', 3, '2020-06-26 07:21:19', '2020-06-26 07:21:19');
+(1, 'article_1.jpg', 3, '2020-06-29 13:01:10', '2020-06-29 13:01:10'),
+(2, 'article_1.jpg', 3, '2020-06-29 13:01:10', '2020-06-29 13:01:10'),
+(3, 'article_1.jpg', 1, '2020-06-29 13:01:10', '2020-06-29 13:01:10'),
+(4, 'article_1.jpg', 2, '2020-06-29 13:01:10', '2020-06-29 13:01:10'),
+(5, 'article_1.jpg', 1, '2020-06-29 13:01:10', '2020-06-29 13:01:10'),
+(6, 'article_1.jpg', 2, '2020-06-29 13:01:10', '2020-06-29 13:01:10');
 
 -- --------------------------------------------------------
 
@@ -188,9 +188,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `role`, `created_at`, `updated_at`) VALUES
-(1, 'Jake Dickens', 'rahul.witting@example.org', '2020-06-26 07:21:19', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'zyoHLn7TiL', 'user', '2020-06-26 07:21:19', '2020-06-26 07:21:19'),
-(2, 'Prof. Cloyd Sanford', 'angelica67@example.org', '2020-06-26 07:21:19', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'HX4uQItglH', 'user', '2020-06-26 07:21:19', '2020-06-26 07:21:19'),
-(3, 'Prof. Pasquale Ernser', 'zaria.dubuque@example.org', '2020-06-26 07:21:19', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'OuhQ7mngAl', 'user', '2020-06-26 07:21:19', '2020-06-26 07:21:19');
+(1, 'Mr. Nathanial Bosco V', 'conn.rashawn@example.org', '2020-06-29 13:01:10', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'qcarhoLORP', 'user', '2020-06-29 13:01:10', '2020-06-29 13:01:10'),
+(2, 'Johanna Schaden MD', 'weissnat.cletus@example.com', '2020-06-29 13:01:10', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'MypJXwG7ij', 'user', '2020-06-29 13:01:10', '2020-06-29 13:01:10'),
+(3, 'Tiara Herzog II', 'isteuber@example.org', '2020-06-29 13:01:10', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'e2jjSv56EO', 'user', '2020-06-29 13:01:10', '2020-06-29 13:01:10');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -4,7 +4,7 @@ DB_PASSWORD=medium
 
 1- Download the project to your localhost
 
-2- create the database meduimDB, and add the username and password medium with permission to mediumDB database
+2- create the database meduimDB, and add the username and password medium, with permission to mediumDB database
 
 3- Open the project and run the commands 
 
@@ -12,7 +12,7 @@ php artisan migrate // to migrate the database
 
 php artisan migrate:fresh --seed // to add the dummy data
 
-OR import the database from database
+OR import the database file mediumDB in database folder
 
 4- run php artisan storage:link
 
