@@ -1,8 +1,13 @@
+# medium.com
+Articles - Laravel CRUD assignment
+
+* I used GIT locally and just upload the code to github
+
 DB_DATABASE=mediumDB
 DB_USERNAME=medium
 DB_PASSWORD=medium
 
-1- Download the project to your localhost
+1- Download the project to your localhost folder (www/medium.com or htdocs/medium.com) (in my example the project inside www/medium.com folder)
 
 2- create the database meduimDB, and add the username and password medium, with permission to mediumDB database
 
@@ -23,4 +28,5 @@ http://localhost/medium.com/public
 
 
 5- first page (Home) contains all articles and the admin can create update or delete articles
+
 
