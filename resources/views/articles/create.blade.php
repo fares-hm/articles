@@ -13,7 +13,7 @@ use \App\Http\Controllers\ArticleController;
             <div class="card-body">
 
 
-                <form method="POST" action="{{ route('articles.store') }}">
+                <form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group row">
@@ -22,6 +22,14 @@ use \App\Http\Controllers\ArticleController;
                         <div class="col-md-6">
                             <input id="article_image" type="file" class="form-control" name="article_image" autofocus>
                             @error('article_image') <span class="help-block text-danger">{{$message}}</span>@enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="article_image2" class="col-md-4 col-form-label text-md-right">{{ __('Article Images 2 optional') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="article_image2" type="file" class="form-control" name="article_image2" autofocus>
                         </div>
                     </div>
 

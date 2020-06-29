@@ -31,11 +31,12 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         // validate
-        $validatedData = $request->validate([
+       $validatedData = $request->validate([
             'article_title' => 'required',
             'article_author' => 'required',
             'article_cat' => 'required',
             'article_content' => 'required',
+            'article_image'  => 'required'
         ]);
 
 
@@ -55,6 +56,25 @@ class ArticleController extends Controller
 
 
         $article->save();
+
+
+        $image = new Image();
+        $imgName = 'article_ '. $article->id . '_1.jpg'; // update image if exist
+        $path = $request->file('article_image')->storeAs('public/images', $imgName);
+        $image->image_url = $imgName;
+        $image->article_id = $article->id;
+        $image->save();
+
+        if($request->hasFile('article_image2'))
+        {
+            $image = new Image();
+            $imgName = 'article_ '. $article->id . '_2.jpg';
+            $path = $request->file('article_image2')->storeAs('public/images', $imgName);
+            $image->image_url = $imgName;
+            $image->article_id = $article->id;
+            $image->save();
+        }
+
         return Redirect::to('articles');
 
 
@@ -94,7 +114,10 @@ class ArticleController extends Controller
 
     public static function getArticleImages($articleID)
     {
-        return $images = Image::where('article_id', $articleID)->get();
+        $images = Image::where('article_id', $articleID)->get();
+        if(count($images) == 0)
+            return null;
+        return $images;
     }
 
 }

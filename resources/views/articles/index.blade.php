@@ -23,10 +23,11 @@ use \App\Http\Controllers\ArticleController;
                 @endif
                 <div class="col col-lg-4">
                     <article class="card" style="width: 18rem;">
-                        @if(ArticleController::getArticleImages($article->id)[0]->image_url != null )
+                        @if(ArticleController::getArticleImages($article->id) != null)
                         <img class="card-img-top"
-                             src="{{url(ArticleController::getArticleImages($article->id)[0]->image_url)}}" alt="">
+                             src="{{asset("storage/images/". ArticleController::getArticleImages($article->id)[0]->image_url)}}" alt="">
                         @endif
+
                         <div class="card-body">
                             <h5 class="card-title">{{$article->article_title}}</h5>
                             <h6 class="card-title text-primary">{{$article->article_author}}</h6>

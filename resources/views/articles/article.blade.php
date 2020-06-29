@@ -10,7 +10,7 @@ use \App\Http\Controllers\ArticleController;
 
         <article class="card" style="width: 50rem;">
             <img class="card-img-top"
-                 src="{{url(ArticleController::getArticleImages($article->id)[0]->image_url)}}" alt="">
+                 src="{{asset("storage/images/". ArticleController::getArticleImages($article->id)[0]->image_url)}}" alt="">
             <div class="card-body">
                 <h5 class="card-title">{{$article->article_title}}</h5>
                 <h6 class="card-title text-primary">{{$article->article_author}}</h6>
@@ -24,7 +24,7 @@ use \App\Http\Controllers\ArticleController;
             <h5 class="card-title align-self-center">Images</h5>
 
             @foreach(ArticleController::getArticleImages($article->id) as $image)
-                <img class="card-img-top" src="{{url($image->image_url)}}" alt="">
+                <img class="card-img-top" src="{{asset("storage/images/". $image->image_url)}}" alt="">
                 <div class="mt-2"></div>
             @endforeach
         </article>

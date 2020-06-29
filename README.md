@@ -12,9 +12,11 @@ php artisan migrate // to migrate the database
 
 php artisan migrate:fresh --seed // to add the dummy data
 
+OR import the database from database
 
+4- run php artisan storage:link
 
-4- run the project
+5- run the project
 
 http://localhost/medium.com/public
 
