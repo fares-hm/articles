@@ -34,8 +34,12 @@ use \App\Http\Controllers\ArticleController;
                             <h6 class="card-title text-secondary">{{ArticleController::getArticleCategory($article->article_cat_id)->category_name}}</h6>
                             <p class="card-text text-secondary">{{$article->article_content}}</p>
                             <a href="{{URL::to('articles/' . $article->id)}}" class="btn btn-primary">{{ __('View') }}</a>
-                            <a href="{{URL::to('articles/' . $article->id .'/edit')}}" class="btn btn-success">{{ __('Edit') }}</a>
-                            <a href="{{URL::to('articles/' . $article->id .'/destroy')}}" class="btn btn-danger">{{ __('Delete') }}</a>
+                            <a href="{{route('articles.edit', $article->id)}}" class="btn btn-success">{{ __('Edit') }}</a>
+                            <a href="javascript:void(0)" onclick="if(confirm('Are you sure')) {document.getElementById('delete_{{$article->id}}').submit()} else {return false;} " class="btn btn-danger">{{ __('Delete') }}</a>
+                            <form id="delete_{{$article->id}}" method="post" action="{{route('articles.destroy',$article->id)}}" style="display: none">
+                                @csrf
+                                @method('DELETE')
+                            </form>
                         </div>
                     </article>
 
